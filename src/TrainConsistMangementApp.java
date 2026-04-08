@@ -34,4 +34,3 @@ public class TrainConsistMangementApp {
         System.out.println(passengerBogies);
     }
 }
-
