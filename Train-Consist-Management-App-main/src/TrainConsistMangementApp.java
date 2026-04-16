@@ -1,28 +1,52 @@
-import java.util.Arrays;
+import java.util.Scanner;
 
-public class  TrainConsistMangementApp{
+public class TrainConsistMangementApp {
 
     public static void main(String[] args) {
 
-        System.out.println("=== UC17: Sort Bogie Names Using Arrays.sort() ===\n");
+        System.out.println("=== UC18: Linear Search for Bogie ID ===\n");
 
-        // 🔹 Bogie type names (unsorted input)
-        String[] bogieNames = {
-                "Luxury",
-                "General",
-                "Sleeper",
-                "AC Chair",
-                "First Class"
+        // 🔹 Array of Bogie IDs (unsorted)
+        String[] bogieIds = {
+                "BG101",
+                "BG205",
+                "BG309",
+                "BG412",
+                "BG550"
         };
 
-        System.out.println("Original Array: " + Arrays.toString(bogieNames));
+        // 🔹 Display available bogies
+        System.out.print("Available Bogie IDs: ");
+        for (String id : bogieIds) {
+            System.out.print(id + " ");
+        }
 
-        // 🔹 Built-in sorting (NO manual logic)
-        Arrays.sort(bogieNames);
+        System.out.println("\n");
 
-        // 🔹 Sorted output
-        System.out.println("\nSorted Bogie Names (Alphabetical Order): " + Arrays.toString(bogieNames));
+        // 🔹 Input search key
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Bogie ID to search: ");
+        String searchKey = sc.nextLine();
+
+        // 🔹 Linear Search Logic
+        boolean found = false;
+
+        for (int i = 0; i < bogieIds.length; i++) {
+
+            if (bogieIds[i].equals(searchKey)) {
+                found = true;
+                System.out.println("\nBogie Found ✔ at index: " + i);
+                break; // 🔹 Early termination
+            }
+        }
+
+        // 🔹 Result output
+        if (!found) {
+            System.out.println("\nBogie Not Found ✖");
+        }
 
         System.out.println("\nProgram completed successfully.");
+
+        sc.close();
     }
 }
